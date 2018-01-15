@@ -1,18 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13189.4" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13049.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
         <!--Carnivore-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="InitialController" title="Carnivore" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Carnivore_WatchKit_App" customModuleProvider="target"/>
+                <controller identifier="InitialController" title="Carnivore" spacing="10" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Carnivore_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="9Mg-mU-eRw">
+                            <items>
+                                <timer alignment="center" textAlignment="center" id="T8F-TG-8pd">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                                <button width="1" alignment="left" title="Start Timer" id="pp6-Ns-jPZ">
+                                    <connections>
+                                        <action selector="onTimerButton" destination="AgC-eL-Hgc" id="u8n-D5-kWt"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label alignment="center" text="Weight: 16 oz" id="hQ2-2q-Ocb"/>
+                        <group width="1" alignment="left" spacing="20" id="fnH-e8-S9w">
+                            <items>
+                                <button alignment="center" backgroundImage="minus" id="8fn-Xa-K9R">
+                                    <connections>
+                                        <action selector="onMinusButton" destination="AgC-eL-Hgc" id="H2b-2a-ccE"/>
+                                    </connections>
+                                </button>
+                                <button alignment="center" backgroundImage="plus" id="Trg-kl-Nno">
+                                    <connections>
+                                        <action selector="onPlusButton" destination="AgC-eL-Hgc" id="Kho-Fu-77Z"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="HC3-xs-BpS">
+                            <items>
+                                <label alignment="left" text="Label" id="O8u-6J-iGa"/>
+                                <slider width="1" alignment="left" value="2" maximum="3" steps="3" id="Ch6-P1-zWA">
+                                    <connections>
+                                        <action selector="onTempChange:" destination="AgC-eL-Hgc" id="SBf-yR-Cfq"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="pPj-eG-AFV">
+                            <items>
+                                <switch width="1" alignment="left" title="Metric" id="IPR-Gb-Eve">
+                                    <connections>
+                                        <action selector="onMetricChanged:" destination="AgC-eL-Hgc" id="zW1-Kf-ZCf"/>
+                                    </connections>
+                                </switch>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="cookLabel" destination="O8u-6J-iGa" id="R0x-IJ-kN0"/>
+                        <outlet property="timer" destination="T8F-TG-8pd" id="Sst-NQ-fSq"/>
+                        <outlet property="timerButton" destination="pp6-Ns-jPZ" id="VhB-nn-889"/>
+                        <outlet property="weightLabel" destination="hQ2-2q-Ocb" id="Ymx-IT-9XE"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>

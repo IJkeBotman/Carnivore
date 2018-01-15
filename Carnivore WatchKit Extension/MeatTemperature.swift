@@ -46,8 +46,7 @@ enum MeatTemperature: Int {
   func cookTimeForOunces(_ ounces: Int) -> TimeInterval {
     let baseTime: TimeInterval = 47 * 60
     let baseWeight = 16
-    let weightModifier: Double =
-    Double(ounces) / Double(baseWeight)
+    let weightModifier: Double = Double(ounces) / Double(baseWeight)
     let tempModifier = self.timeModifier
     return baseTime * weightModifier * tempModifier
   }
